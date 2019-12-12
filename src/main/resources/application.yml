@@ -21,7 +21,12 @@ spring:
 
 #python配置
 python:
+    #执行程序
     executor: D:\software\python\python.exe
+    #分析模型
+    analysis:
+      model1: D:\repository\analysis_python\analysis\parametor.py
+      model2: D:\repository\analysis_python\analysis\model.py
 
 #配置返回统一处理类
 filter:

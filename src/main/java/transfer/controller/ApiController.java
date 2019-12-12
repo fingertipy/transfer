@@ -1,8 +1,12 @@
 package transfer.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import transfer.constatns.GlobalConstants;
+import transfer.service.Transfer;
+import transfer.utils.PythonUtils;
 
 /**
  * @Description Api Controller
@@ -14,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class ApiController {
 
-    @GetMapping("/hallo")
-    public Integer hallo(){
-        return 1;
+    @Autowired
+    private Transfer transfer;
+
+    @GetMapping("/call")
+    public void call(String args){
+        transfer.invok(GlobalConstants.ANALYSIS_MODEL_1, args);
     }
 }
